@@ -1,0 +1,58 @@
+.navbar{
+    background: #63D471;
+    padding: 0%;
+    display: flex;
+    height: 85px;
+  }
+  .navbar-brand{
+    color:white;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+   
+  }
+  .prodata{
+    font-size:small;
+    font-weight:light;
+     text-align: left;
+     padding: 0px;  
+     margin: 0px;
+  }
+  .prodatall{
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid black;
+    background-color: #c7ebcc;
+    width: 20%;
+  
+  }
+  .card-title{
+   justify-content: right;
+   align-items: right;
+    padding-left: 20%;
+    color: white;
+    font-style: italic;
+    font-size:large;
+  }
+  .notauth{
+    text-align: center;
+    font-size: larger;
+  }
+  .butn, .btn{
+    background-color: #555555;
+  border: none;
+  color: white;
+  margin: 20px;
+  border-radius: 3px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  }
+ 
