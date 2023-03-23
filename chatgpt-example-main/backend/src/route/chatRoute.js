@@ -65,18 +65,19 @@ router.post('/', async (req,res)=>{
             person: a week
 
             Manager: Great! When would you like your leave to start?
-            person: I want my leave to start on 20/3/2023.
+            person: I want my leave to start on 21/3/2023.
            
+            Manager:  Got it. Can you please provide a brief reason for your leave?
+            person: I need some time off to visit family.
+
             Manager:  Okay, and when would you like your leave to end?
             person: I want to come back to work on 27/3/2023.
 
-            Manager:  Got it. So you're requesting 1 week of leave from July 15th to July 22nd. Can you please provide a brief reason for your leave?
-            person: I need some time off to visit family.
-
+            
             Manager: Thank you for the information. I will submit your leave request to HR for approval.
-            \n\nperson:${message}
-            `,
-            temperature: 0.7,
+            \n\n person:${message}
+            Manager:`,
+            temperature: 0.3,
             max_tokens: 1024,
             
             // n:1,

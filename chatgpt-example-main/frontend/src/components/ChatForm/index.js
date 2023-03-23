@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMessage } from "../../actions/chatActions";
 import styles from "./style";
 import {useGetChatQuery,useAddChatMutation, useSaveChatMutation,useGetChatdataQuery} from '../../services/chatApi';
+import {AccessToken} from '../pageLayout';
 
 const ChatForm = () => {
   const [chatForm] = Form.useForm();
@@ -23,33 +24,36 @@ const [saveChat ]=useSaveChatMutation()
 
   const onSubmit = (event) => {
 
-    // const handleSave =()=>{
-    //   // e.preventDefault();
-    //   console.log('save button clicked');
-    //   saveChat({
-    //     "Title":"title1",
-    //     "EmployeeName":"sruthi",
-    //     "LeaveType":"sick leave"
-    //   })
+
+    
+    const handleSave =()=>{
+      // e.preventDefault();
+      console.log('save button clicked');
+      saveChat({
+        "Title":"title1",
+        "EmployeeName":"sruthi",
+        "LeaveType":"sick leave"
+      })
      
-    //   .then((res)=>{
-    //     console.log('saved successfully');
-    //     console.log("response after save data to shrepoint",res)
-    //   })
-    //   .catch((err)=>{
-    //     console.log('error while saving data');
-    //     console.log(err);
-    //   })
-    // }
+      .then((res)=>{
+        console.log('saved successfully');
+        console.log("response after save data to shrepoint",res)
+      })
+      .catch((err)=>{
+        console.log('error while saving data');
+        console.log(err);
+      })
+    }
     
 
 
     console.log('submit button ender clicked');
+// console.log("access token for dispatch:",AccessToken)
 
     if (!event.target.value) {
       return;
     }
-    dispatch(fetchMessage(event.target.value));
+    dispatch(fetchMessage((event.target.value),AccessToken));
     chatForm.resetFields();
 
 

@@ -15,7 +15,7 @@ export const chatApi=createApi({
           
   headers.set('Content-Type', 'application/json');
   headers.set("authorization", `${AccessToken}`);
-  console.log(headers);
+  console.log("headers in the rtk query",headers);
   return headers;
  
 },}),

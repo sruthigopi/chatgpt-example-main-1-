@@ -1,5 +1,5 @@
 // chat output
-
+import '../../App.css'
 import { createRef, useEffect, useRef, useState } from "react";
 // import { CopyOutlined } from "@ant-design/icons";
 import { Space, message, Spin } from "antd";
@@ -49,7 +49,7 @@ const ChatView = () => {
       <div style={styles.topMsgWrapperStyle}>
         <span style={styles.topMsgStyle}>This chat is end to end encrypted</span>
       </div>
-      <p>Welcome, how can I help you?</p>
+      <p className="fst">Welcome, how can I help you?</p>
       {messages.map((msg, idx) => (
         <div
           key={msg.id}

@@ -1,3 +1,5 @@
+import {AccessToken} from '../components/pageLayout';
+
 export const chatActions = {
   FETCH_MESSAGE: "FETCH_MESSAGE",
   FETCH_MESSAGE_SUCCESS: "FETCH_MESSAGE_SUCCESS",
@@ -5,6 +7,9 @@ export const chatActions = {
 };
 
 export const fetchMessage = (msg) => ({
+ 
   type: chatActions.FETCH_MESSAGE,
   payload: msg,
+  AccessToken: AccessToken,
+  
 });

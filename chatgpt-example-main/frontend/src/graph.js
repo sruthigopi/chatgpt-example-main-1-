@@ -7,6 +7,7 @@ export async function callMsGraph(accessToken) {
     const headers = new Headers();
     const bearer = `Bearer ${accessToken}`;
 console.log("acess token in graph.js file:",accessToken)
+
     headers.append("Authorization", bearer);
 
     const options = {
