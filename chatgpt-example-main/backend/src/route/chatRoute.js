@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fs=require('fs');
+const new_data = require('../../newChat.json');
 const { Configuration, OpenAIApi} = require("openai");
 const configuration = new Configuration({
     apiKey: process.env.API_KEY
@@ -25,27 +26,23 @@ function savefile(req){
   
   const fieldNameMap = {
      "i":jsonData[0].chat,
-   "type" :jsonData[1].chat ,
-   "days": jsonData[2].chat
+   "Type" :jsonData[1].chat ,
+   "Days": jsonData[2].chat,
+   "StartingDate": jsonData[3].chat,
+   "EndingDate": jsonData[4].chat,
+   "Reason":jsonData[5].chat
   };
  
  fieldNameMap.isApproved = false;
-//  console.log(fieldNameMap);
-
-//  push into json file
-  const formattedData = [];
-  for (const item of jsonData) {
-    const formattedItem = {};
-    for (const [key, value] of Object.entries(item)) {
-      formattedItem[fieldNameMap[key]] = value;
-    }
-    formattedData.push(formattedItem);
-  }
-  
-  // console.log(formattedData);
-
-// end
-
+ console.log(fieldNameMap);
+ const fieldJson = JSON.stringify(fieldNameMap);
+ console.log(fieldJson);
+// save to new file
+// fs.writeFile('./newChat.json', JSON.stringify(fieldNameMap,null,2), err => {
+//   if (err) throw err;
+//   console.log('The file has been saved!');
+// });
+ 
 router.post('/', async (req,res)=>{
     const {message} = req.body;
     // console.log({message})
@@ -64,23 +61,22 @@ router.post('/', async (req,res)=>{
             Manager: How many days of leave are you applying for?
             person: a week
 
-            Manager: Great! When would you like your leave to start?
-            person: I want my leave to start on 21/3/2023.
+            Manager: Great! When would you like your leave to start? (Please provide a date in the format DD/MM/YYYY)
+            person: 28/3/2023.
            
             Manager:  Got it. Can you please provide a brief reason for your leave?
             person: I need some time off to visit family.
 
-            Manager:  Okay, and when would you like your leave to end?
-            person: I want to come back to work on 27/3/2023.
-
-            
+            Manager:  Okay, and when would you like your leave to end? (Please provide a date in the format DD/MM/YYYY)
+            person: 27/3/2024.
+               
             Manager: Thank you for the information. I will submit your leave request to HR for approval.
             \n\n person:${message}
             Manager:`,
             temperature: 0.3,
             max_tokens: 1024,
             
-            // n:1,
+            n:1,
             // stop: '\n',
         });
         //  manager:Alright, I have all the necessary details. Your request will be processed shortly.

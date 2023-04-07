@@ -1,0 +1,9 @@
+{
+  "i": "leave",
+  "Type": "sick leave",
+  "Days": "2 days",
+  "StartingDate": "25 March 2023",
+  "EndingDate": "march 27 2023",
+  "Reason": "fever",
+  "isApproved": false
+}
