@@ -37,7 +37,8 @@ useEffect(() => {
   return (
 
     <PageLayout>
-    <AuthenticatedTemplate>
+      {/* To avaoid authentication later you may call 'AuthenticatedTemplate' */}
+    {/* <AuthenticatedTemplate> */}
 
     <ConfigProvider
       theme={{
@@ -54,7 +55,7 @@ useEffect(() => {
       </BrowserRouter>
     </ConfigProvider>
 
-    </AuthenticatedTemplate>
+    {/* </AuthenticatedTemplate> */}
     <UnauthenticatedTemplate>
                <p className="notauth">You are not signed in! Please sign in.</p>
             </UnauthenticatedTemplate>
